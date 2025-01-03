@@ -1,4 +1,4 @@
-namespace frm_login
+namespace DAL_DA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -6,22 +6,21 @@ namespace frm_login
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("DichVu")]
-    public partial class DichVu
+    [Table("DoanhThu")]
+    public partial class DoanhThu
     {
         [Key]
         [StringLength(50)]
-        public string MaDichVu { get; set; }
-
-        [StringLength(100)]
-        public string TenDichVu { get; set; }
-
-        public decimal? Gia { get; set; }
+        public string MaDoanhThu { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string MaHoaDon { get; set; }
-        [ForeignKey("MaHoaDon")]
-        public virtual HoaDon HoaDon { get; set; }
+        public string MaDichVu { get; set; }
+
+        public DateTime? NgayHoaDon { get; set; }
+
+        public decimal? Gia { get; set; }
+
+        public virtual DichVu DichVu { get; set; }
     }
 }

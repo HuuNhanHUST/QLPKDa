@@ -7,58 +7,108 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS_DA;
+using DAL_DA.Model1;
 
 namespace frm_login
 {
     public partial class frm_doanhthu : Form
     {
+        string maDoanhThu;
         public frm_doanhthu()
         {
             InitializeComponent();
         }
 
+        private readonly doanhthuService doanhThuServices = new doanhthuService();
         private void guna2HtmlLabel26_Click(object sender, EventArgs e)
         {
 
         }
-        Model1 db = new Model1();
+        public void LoadData()
+        {
+            try
+            {
+                using (var db = new Model1())
+                {
+                    // Tắt tự động tạo cột nếu chưa làm
+                    dta_doanhthu.AutoGenerateColumns = false;
+
+                    // Truy vấn dữ liệu từ cơ sở dữ liệu
+                    var data = (from dt in db.DoanhThus
+                                join dv in db.DichVus on dt.MaDichVu equals dv.MaDichVu into dvJoin
+                                from dv in dvJoin.DefaultIfEmpty() // Liên kết trái
+                                select new
+                                {
+                                    dt.MaDoanhThu,
+                                    MaDichVu = dv.MaDichVu ?? "Chưa có dịch vụ", // Kiểm tra null
+                                    dt.NgayHoaDon,
+                                    dt.Gia
+                                }).ToList();
+
+                    // Gán dữ liệu vào DataGridView
+                    dta_doanhthu.DataSource = null; // Xóa dữ liệu cũ
+                    dta_doanhthu.DataSource = data;
+
+                    dta_doanhthu.Columns["MaDichVu"].DataPropertyName = "MaDichVu";
+                    dta_doanhthu.Columns["NgayHoaDon"].DataPropertyName = "NgayHoaDon";
+                    dta_doanhthu.Columns["Gia"].DataPropertyName = "Gia";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
         private void frm_doanhthu_Load(object sender, EventArgs e)
         {
-            dta_doanhthu.AutoGenerateColumns = false;
+            LoadData();
 
+        }
 
-            // Thêm dữ liệu mẫu
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+            frm_addDoanhthu frm_Add_Doanhthu = new frm_addDoanhthu(false);
+            frm_Add_Doanhthu.ShowDialog();
+            LoadData();
+        }
 
-            //var doanhThuList = db.HoaDons
-            //     .Join(db.DoanhThus,
-            //           hd => hd.MaDichVu,       // Join HoaDon.MaDichVu với DoanhThu.MaDoanhThu
-            //           dt => dt.MaDoanhThu,
-            //           (hd, dt) => new {
-            //               LoaiDichVu = dt.TenDichVu,
-            //               Ngay = db.LichHens
-            //                          .Where(lh => lh.MaBenhNhan == hd.MaBenhNhan)  // Lọc LichHen theo MaBenhNhan
-            //                          .Select(lh => lh.NgayHenGN)
-            //                          .FirstOrDefault(),  // Lấy NgayHenGN đầu tiên tương ứng
-            //               Gia = dt.Gia
-            //           })
-            //     .ToList();
-            var doanhThuList = db.DoanhThus
-                .Select(dt => new
-                {
-                    Type = dt.TenDichVu,
-                    Date = dt.NgayHoaDon,
-                    Price = dt.Gia
-                })
-                .ToList();
+        private void dta_doanhthu_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dta_doanhthu.Rows.Count > 0 && e.RowIndex >= 0
+                && maDoanhThu != dta_doanhthu.Rows[e.RowIndex].Cells["Code"].Value.ToString())
+            {
+                maDoanhThu = dta_doanhthu.Rows[e.RowIndex].Cells["Code"].Value.ToString();
+            }
+            else if (dta_doanhthu.Rows.Count <= 0 || e.RowIndex < 0)
+            {
+                maDoanhThu = "";
+            }
+        }
 
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            if (maDoanhThu == "")
+            {
+                MessageBox.Show("Chưa chọn doanh thu", "Thông báo");
+                return;
+            }
+            frm_addDoanhthu frm_Add_Doanhthu = new frm_addDoanhthu(true, maDoanhThu);
+            frm_Add_Doanhthu.ShowDialog();
+        }
 
-            // Gán dữ liệu vào DataGridView
-            dta_doanhthu.DataSource = doanhThuList;
-            dta_doanhthu.Columns["Column1"].DataPropertyName = "Type";
-            dta_doanhthu.Columns["Column2"].DataPropertyName = "Date";
-            dta_doanhthu.Columns["Column3"].DataPropertyName = "Price";
-
-
+        private void BTN_XOA_Click(object sender, EventArgs e)
+        {
+            if (maDoanhThu == "")
+            {
+                MessageBox.Show("Chưa chọn doanh thu", "Thông báo");
+                return;
+            }
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa hay không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                doanhThuServices.delete(maDoanhThu);
+                MessageBox.Show("xóa doanh thu thành công", "Thông báo");
+            }
         }
     }
 }

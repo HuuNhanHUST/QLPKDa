@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>frm_login</RootNamespace>
     <AssemblyName>frm_login</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,7 +41,7 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -62,14 +63,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
-    <Compile Include="BenhNhan.cs" />
-    <Compile Include="DichVu.cs" />
-    <Compile Include="DoanhThu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_addbenhnhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_addbenhnhan.Designer.cs">
+      <DependentUpon>frm_addbenhnhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_addDoanhthu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_addDoanhthu.Designer.cs">
+      <DependentUpon>frm_addDoanhthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_add_lichhen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_add_lichhen.Designer.cs">
+      <DependentUpon>frm_add_lichhen.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_danhsachbenhnhan.cs">
       <SubType>Form</SubType>
@@ -113,21 +129,25 @@
     <Compile Include="frm_tongquan.Designer.cs">
       <DependentUpon>frm_tongquan.cs</DependentUpon>
     </Compile>
-    <Compile Include="HoaDon.cs" />
-    <Compile Include="LichHen.cs" />
     <Compile Include="loading.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="loading.Designer.cs">
       <DependentUpon>loading.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Thuoc_.cs" />
-    <Compile Include="ToaThuoc.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_addbenhnhan.resx">
+      <DependentUpon>frm_addbenhnhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_addDoanhthu.resx">
+      <DependentUpon>frm_addDoanhthu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_add_lichhen.resx">
+      <DependentUpon>frm_add_lichhen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_danhsachbenhnhan.resx">
       <DependentUpon>frm_danhsachbenhnhan.cs</DependentUpon>
@@ -163,6 +183,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -173,9 +194,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\benhnhan.jpg" />
@@ -194,6 +212,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\THUOC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS_DA\BUS_DA.csproj">
+      <Project>{ab782223-ccc6-4b37-8bef-77e9be29e1b8}</Project>
+      <Name>BUS_DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL_DA\DAL_DA.csproj">
+      <Project>{9d95ec9f-7af8-456b-8b28-a83b513ed480}</Project>
+      <Name>DAL_DA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

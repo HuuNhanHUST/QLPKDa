@@ -1,4 +1,4 @@
-namespace frm_login
+namespace DAL_DA.Model1
 {
     using System;
     using System.Collections.Generic;

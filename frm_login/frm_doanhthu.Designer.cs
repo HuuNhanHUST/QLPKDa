@@ -38,9 +38,12 @@
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BTN_XOA = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_them = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_sua = new Guna.UI2.WinForms.Guna2Button();
+            this.MaDichVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dta_doanhthu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,9 +63,9 @@
             this.dta_doanhthu.ColumnHeadersHeight = 40;
             this.dta_doanhthu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dta_doanhthu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.MaDichVu,
+            this.NgayHoaDon,
+            this.Gia});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +103,7 @@
             this.dta_doanhthu.ThemeStyle.RowsStyle.Height = 50;
             this.dta_doanhthu.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dta_doanhthu.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dta_doanhthu.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dta_doanhthu_CellEnter);
             // 
             // guna2BorderlessForm1
             // 
@@ -152,29 +156,91 @@
             this.guna2HtmlLabel25.TabIndex = 21;
             this.guna2HtmlLabel25.Text = "DOANH SỐ THÁNG NÀY";
             // 
-            // Column1
+            // BTN_XOA
             // 
-            this.Column1.HeaderText = "Type";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.BTN_XOA.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BTN_XOA.BorderRadius = 5;
+            this.BTN_XOA.BorderThickness = 1;
+            this.BTN_XOA.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BTN_XOA.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BTN_XOA.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BTN_XOA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BTN_XOA.FillColor = System.Drawing.Color.Transparent;
+            this.BTN_XOA.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BTN_XOA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BTN_XOA.Location = new System.Drawing.Point(906, 611);
+            this.BTN_XOA.Name = "BTN_XOA";
+            this.BTN_XOA.Size = new System.Drawing.Size(93, 31);
+            this.BTN_XOA.TabIndex = 29;
+            this.BTN_XOA.Text = "Xóa";
+            this.BTN_XOA.Click += new System.EventHandler(this.BTN_XOA_Click);
             // 
-            // Column2
+            // btn_them
             // 
-            this.Column2.HeaderText = "Date";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.btn_them.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_them.BorderRadius = 5;
+            this.btn_them.BorderThickness = 1;
+            this.btn_them.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_them.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_them.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_them.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_them.FillColor = System.Drawing.Color.Transparent;
+            this.btn_them.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_them.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_them.Location = new System.Drawing.Point(789, 611);
+            this.btn_them.Name = "btn_them";
+            this.btn_them.Size = new System.Drawing.Size(91, 31);
+            this.btn_them.TabIndex = 28;
+            this.btn_them.Text = "Thêm";
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
-            // Column3
+            // btn_sua
             // 
-            this.Column3.HeaderText = "Price";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.btn_sua.BorderColor = System.Drawing.Color.Gray;
+            this.btn_sua.BorderThickness = 1;
+            this.btn_sua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_sua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_sua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_sua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_sua.FillColor = System.Drawing.Color.Transparent;
+            this.btn_sua.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_sua.Location = new System.Drawing.Point(936, 21);
+            this.btn_sua.Name = "btn_sua";
+            this.btn_sua.Size = new System.Drawing.Size(63, 37);
+            this.btn_sua.TabIndex = 30;
+            this.btn_sua.Text = "Sửa";
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
+            // 
+            // MaDichVu
+            // 
+            this.MaDichVu.DataPropertyName = "MaDichVu";
+            this.MaDichVu.HeaderText = "Type";
+            this.MaDichVu.MinimumWidth = 6;
+            this.MaDichVu.Name = "MaDichVu";
+            // 
+            // NgayHoaDon
+            // 
+            this.NgayHoaDon.DataPropertyName = "NgayHoaDon";
+            this.NgayHoaDon.HeaderText = "Date";
+            this.NgayHoaDon.MinimumWidth = 6;
+            this.NgayHoaDon.Name = "NgayHoaDon";
+            // 
+            // Gia
+            // 
+            this.Gia.DataPropertyName = "Gia";
+            this.Gia.HeaderText = "Price";
+            this.Gia.MinimumWidth = 6;
+            this.Gia.Name = "Gia";
             // 
             // frm_doanhthu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 654);
+            this.Controls.Add(this.btn_sua);
+            this.Controls.Add(this.BTN_XOA);
+            this.Controls.Add(this.btn_them);
             this.Controls.Add(this.guna2HtmlLabel28);
             this.Controls.Add(this.guna2HtmlLabel27);
             this.Controls.Add(this.guna2HtmlLabel26);
@@ -197,8 +263,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel26;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private Guna.UI2.WinForms.Guna2Button btn_sua;
+        private Guna.UI2.WinForms.Guna2Button BTN_XOA;
+        private Guna.UI2.WinForms.Guna2Button btn_them;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaDichVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
     }
 }

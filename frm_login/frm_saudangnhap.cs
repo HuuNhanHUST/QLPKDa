@@ -16,6 +16,7 @@ namespace frm_login
         public frm_saudangnhap()
         {
             InitializeComponent();
+            
         }
 
         private void pnl_container_Paint(object sender, PaintEventArgs e)
@@ -36,9 +37,18 @@ namespace frm_login
         {
             lbl_val.Text = "Dashboard overview";
             pictureBox_val.Image = Properties.Resources.dashicon;
-            container(new frm_tongquan());
+            frm_tongquan frm = new frm_tongquan(this);  // Truyền "this" vào để tham chiếu đến frm_saudangnhap
+            container(frm);
+
+            frm_danhsachbenhnhan patientListForm = new frm_danhsachbenhnhan();
+
+            patientListForm.Loaddata();  // Đảm bảo load lại dữ liệu trước khi lấy số lượng
+
+            int patientCount = patientListForm.count();  // Lấy số lượng bệnh nhân từ count()
+            frm.UpdatePatientCount(patientCount);
+
         }
-        private void container(Form frm)
+        public void container(Form frm)
         {
             if (pnl_container.Controls.Count > 0)
             {
@@ -56,7 +66,11 @@ namespace frm_login
         {
             lbl_val.Text = "Danh sách bệnh nhân";
             pictureBox_val.Image = Properties.Resources.benhnhan;
-            container(new frm_danhsachbenhnhan());
+            frm_danhsachbenhnhan frm = new frm_danhsachbenhnhan();
+            frm.Owner = this;
+
+            // Mở form trong container
+            container(frm);
         }
         private void controlbox_exit_Click(object sender, EventArgs e)
         {

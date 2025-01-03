@@ -441,6 +441,7 @@
             this.lbl_thismonth.Size = new System.Drawing.Size(58, 44);
             this.lbl_thismonth.TabIndex = 13;
             this.lbl_thismonth.Text = "00";
+            this.lbl_thismonth.Click += new System.EventHandler(this.lbl_thismonth_Click);
             // 
             // guna2HtmlLabel22
             // 
@@ -747,6 +748,7 @@
             this.Name = "frm_tongquan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_tongquan";
+            this.Load += new System.EventHandler(this.frm_tongquan_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);

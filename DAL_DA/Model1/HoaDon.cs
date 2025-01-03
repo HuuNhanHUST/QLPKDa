@@ -1,4 +1,4 @@
-namespace frm_login
+namespace DAL_DA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -6,31 +6,34 @@ namespace frm_login
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ToaThuoc")]
-    public partial class ToaThuoc
+    [Table("HoaDon")]
+    public partial class HoaDon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ToaThuoc()
+        public HoaDon()
         {
-            Thuoc_ = new HashSet<Thuoc_>();
+            ToaThuocs = new HashSet<ToaThuoc>();
         }
 
         [Key]
         [StringLength(50)]
-        public string MaToa { get; set; }
+        public string MaHoaDon { get; set; }
 
-        [StringLength(1000)]
-        public string LieuLuon { get; set; }
-
-        public int? SoLuong { get; set; }
+        [StringLength(100)]
+        public string GhiChu { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string MaHoaDon { get; set; }
+        public string MaBenhNhan { get; set; }
 
-        public virtual HoaDon HoaDon { get; set; }
+        [StringLength(50)]
+        public string MaDichVu { get; set; }
+
+        public virtual BenhNhan BenhNhan { get; set; }
+
+        public virtual DichVu DichVu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Thuoc_> Thuoc_ { get; set; }
+        public virtual ICollection<ToaThuoc> ToaThuocs { get; set; }
     }
 }

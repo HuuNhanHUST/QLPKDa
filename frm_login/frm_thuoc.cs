@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL_DA.Model1;
 
 namespace frm_login
 {
@@ -22,60 +23,84 @@ namespace frm_login
         {
 
         }
-        Model1 db = new Model1();
+     
 
         private void frm_thuoc_Load(object sender, EventArgs e)
         {
-            string filePath = "D:\\VISUAL STUDIO\\QLPKDa\\PICTURE\\THUOC.png";
-
-            dta_thuoc.AutoGenerateColumns = false;
-
-            var listThuoc = db.Thuoc_
-                .Join(db.ToaThuocs, thuoc => thuoc.MaToa, toa => toa.MaToa, (thuoc, toa) => new { thuoc, toa })
-                .Join(db.HoaDons, combined => combined.toa.MaHoaDon, hoaDon => hoaDon.MaHoaDon, (combined, hoaDon) => new { combined, hoaDon })
-                .Join(db.BenhNhans, combinedHoaDon => combinedHoaDon.hoaDon.MaBenhNhan, benhNhan => benhNhan.MaBenhNhan, (combinedHoaDon, benhNhan) => new
-                {
-                    TenThuoc = combinedHoaDon.combined.thuoc.TenThuoc,
-                    Gia = combinedHoaDon.combined.thuoc.Gia,
-                    LieuLuon = combinedHoaDon.combined.toa.LieuLuon,
-                    SoLuong = combinedHoaDon.combined.toa.SoLuong,
-                    Ghichu = combinedHoaDon.hoaDon.GhiChu,
-                    TenBenhNhan = benhNhan.TenBenhNhan,
-                    Avatar = benhNhan.Avatar,
-                    LichHen = benhNhan.LichHens
-                        .Select(lh => lh.NgayHenTT)
-                        .FirstOrDefault(),
-                    DichVu = db.DichVus
-            .Where(dv => dv.MaDichVu == combinedHoaDon.hoaDon.MaDichVu)
-            .Select(dv => dv.TenDichVu)
-            .FirstOrDefault()
-                })
-                .ToList();
-
-
-            // Gán danh sách dữ liệu vào DataGridView
-            dta_thuoc.DataSource = listThuoc;
-
-            // Gán dữ liệu cho từng cột hiện có
-            dta_thuoc.Columns["Column3"].DataPropertyName = "TenBenhNhan";
-            dta_thuoc.Columns["Column4"].DataPropertyName = "LichHen";
-            dta_thuoc.Columns["Column5"].DataPropertyName = "DichVu";
-            dta_thuoc.Columns["Column6"].DataPropertyName = "TenThuoc";
-            dta_thuoc.Columns["Column7"].DataPropertyName = "Gia";
-            dta_thuoc.Columns["Column8"].DataPropertyName = "Ghichu";
-            dta_thuoc.Columns["Column2"].DataPropertyName = "Avatar";
-
-            dta_thuoc.Columns["Column1"].Width = 10;
-            dta_thuoc.Columns["Column2"].Width = 50;  
-            dta_thuoc.Columns["Column3"].Width = 100;  
-            dta_thuoc.Columns["Column4"].Width = 160;  
-            dta_thuoc.Columns["Column5"].Width = 80; 
-            dta_thuoc.Columns["Column6"].Width = 90;  
-            dta_thuoc.Columns["Column7"].Width = 80;
-            dta_thuoc.Columns["Column8"].Width = 220;
-
-
+            
+            LoadData();
 
         }
+
+        private void LoadData()
+        {
+            using (var db = new Model1())
+            {
+                // Tạo các cột của DataGridView nếu chưa có
+                dta_thuoc.AutoGenerateColumns = false;
+
+                var data = (from tt in db.ToaThuocs
+                            join hd in db.HoaDons on tt.MaHoaDon equals hd.MaHoaDon
+                            join bn in db.BenhNhans on hd.MaBenhNhan equals bn.MaBenhNhan
+                            join dv in db.DichVus on hd.MaDichVu equals dv.MaDichVu
+                            join thuoc in db.Thuoc_ on tt.MaToa equals thuoc.MaToa
+                            select new
+                            {
+                                tt.MaToa,
+                                Avatar = bn.Avatar,  // Đảm bảo Avatar có dữ liệu
+                                TenBenhNhan = bn.TenBenhNhan,
+                                TenDichVu = dv.TenDichVu,
+                                TenThuoc = thuoc.TenThuoc,
+                                Price = thuoc.Gia * tt.SoLuong,  // Tính giá (Price * SoLuong)
+                                 tt.LieuLuon,  // Đảm bảo có LieuLuong
+                            }).ToList();
+                // Gán dữ liệu vào DataGridView
+                dta_thuoc.DataSource = data;
+
+                // Sau khi gán dữ liệu vào DataGridView, xử lý hình ảnh (nếu có)
+                ProcessAvatarImages();
+            }
+        }
+
+
+        private void ProcessAvatarImages()
+        {
+            // Xử lý hiển thị hình ảnh cho mỗi dòng
+            foreach (DataGridViewRow row in dta_thuoc.Rows)
+            {
+                if (row.Cells[1] != null && row.Cells[1].Value != null)
+                {
+                    byte[] imageBytes = row.Cells[1].Value as byte[];
+
+                    // Kiểm tra nếu byte[] hợp lệ
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        try
+                        {
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                // Kiểm tra nếu byte[] có phải là hình ảnh hợp lệ
+                                Image img = Image.FromStream(ms);
+                                row.Cells[1].Value = img;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Nếu có lỗi khi chuyển đổi byte[] thành hình ảnh
+                            MessageBox.Show($"Lỗi khi xử lý hình ảnh cho MaToa {row.Cells["MaToa"].Value}: {ex.Message}",
+                                "Lỗi Hình Ảnh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            // Gán hình ảnh mặc định nếu có lỗi
+                            row.Cells[1].Value = Properties.Resources.THUOC; // Hình ảnh mặc định
+                        }
+                    }
+                    else
+                    {
+                        row.Cells[1].Value = Properties.Resources.THUOC; // Hình ảnh mặc định
+                    }
+                }
+            }
+        }
+
     }
 }

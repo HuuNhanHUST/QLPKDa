@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace frm_login
+namespace GUI_DOAN
 {
     internal static class Program
     {
@@ -14,10 +14,9 @@ namespace frm_login
         [STAThread]
         static void Main()
         {
-            AccountManager accountManager = new AccountManager();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_lichhen());
+            Application.Run(new Form1());
         }
     }
 }

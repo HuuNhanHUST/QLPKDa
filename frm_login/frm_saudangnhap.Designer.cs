@@ -414,8 +414,8 @@ namespace frm_login
         private Guna.UI2.WinForms.Guna2Button btn_doanhthu;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Panel pnl_container;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lbl_val;
-        private PictureBox pictureBox_val;
+        public Guna.UI2.WinForms.Guna2HtmlLabel lbl_val;
+        public PictureBox pictureBox_val;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }

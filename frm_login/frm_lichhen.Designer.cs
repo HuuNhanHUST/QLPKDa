@@ -79,12 +79,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dta_lichhen.DefaultCellStyle = dataGridViewCellStyle3;
             this.dta_lichhen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.dta_lichhen.Location = new System.Drawing.Point(23, 107);
+            this.dta_lichhen.Location = new System.Drawing.Point(34, 111);
             this.dta_lichhen.Name = "dta_lichhen";
             this.dta_lichhen.RowHeadersVisible = false;
             this.dta_lichhen.RowHeadersWidth = 51;
             this.dta_lichhen.RowTemplate.Height = 50;
-            this.dta_lichhen.Size = new System.Drawing.Size(976, 440);
+            this.dta_lichhen.Size = new System.Drawing.Size(976, 438);
             this.dta_lichhen.TabIndex = 2;
             this.dta_lichhen.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dta_lichhen.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -108,6 +108,7 @@
             this.dta_lichhen.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dta_lichhen.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dta_lichhen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dta_lichhen_CellContentClick);
+            this.dta_lichhen.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dta_lichhen_CellEnter);
             // 
             // guna2Panel1
             // 
@@ -117,6 +118,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1022, 65);
             this.guna2Panel1.TabIndex = 3;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btn_sua
             // 
@@ -134,6 +136,7 @@
             this.btn_sua.Size = new System.Drawing.Size(63, 37);
             this.btn_sua.TabIndex = 5;
             this.btn_sua.Text = "Sửa";
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // guna2Button3
             // 
@@ -152,6 +155,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(93, 31);
             this.guna2Button3.TabIndex = 5;
             this.guna2Button3.Text = "Xóa";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button1
             // 
@@ -170,9 +174,11 @@
             this.guna2Button1.Size = new System.Drawing.Size(91, 31);
             this.guna2Button1.TabIndex = 4;
             this.guna2Button1.Text = "Thêm";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MaLichHen";
             this.Column1.FillWeight = 37.43314F;
             this.Column1.HeaderText = "";
             this.Column1.MinimumWidth = 6;
@@ -180,6 +186,7 @@
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "Avatar";
             this.Column2.FillWeight = 149.1708F;
             this.Column2.HeaderText = "";
             this.Column2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -188,6 +195,7 @@
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "TenBenhNhan";
             this.Column3.FillWeight = 102.6792F;
             this.Column3.HeaderText = "Basic info";
             this.Column3.MinimumWidth = 6;
@@ -195,27 +203,30 @@
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "NgayHenTT";
             this.Column4.FillWeight = 102.6792F;
-            this.Column4.HeaderText = "Time";
+            this.Column4.HeaderText = "Next";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "NgayHenGN";
             this.Column5.FillWeight = 102.6792F;
-            this.Column5.HeaderText = "Date";
+            this.Column5.HeaderText = "Last";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
             // Column6
             // 
-            this.Column6.FillWeight = 102.6792F;
+            this.Column6.DataPropertyName = "TenDichVu";
             this.Column6.HeaderText = "Service";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "Ghichu";
             this.Column7.FillWeight = 102.6792F;
             this.Column7.HeaderText = "Note";
             this.Column7.MinimumWidth = 6;
