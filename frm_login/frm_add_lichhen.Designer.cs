@@ -41,20 +41,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtGhiChu = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaLichHen = new Guna.UI2.WinForms.Guna2TextBox();
+            this.controlbox_exit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.SuspendLayout();
             // 
             // cbxDichVu
             // 
             this.cbxDichVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDichVu.FormattingEnabled = true;
-            this.cbxDichVu.Location = new System.Drawing.Point(173, 178);
+            this.cbxDichVu.Location = new System.Drawing.Point(174, 194);
             this.cbxDichVu.Name = "cbxDichVu";
             this.cbxDichVu.Size = new System.Drawing.Size(591, 24);
             this.cbxDichVu.TabIndex = 34;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(42, 181);
+            this.label6.Location = new System.Drawing.Point(43, 197);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 23);
             this.label6.TabIndex = 33;
@@ -64,14 +65,14 @@
             // 
             this.cbxBenhNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBenhNhan.FormattingEnabled = true;
-            this.cbxBenhNhan.Location = new System.Drawing.Point(172, 141);
+            this.cbxBenhNhan.Location = new System.Drawing.Point(173, 157);
             this.cbxBenhNhan.Name = "cbxBenhNhan";
             this.cbxBenhNhan.Size = new System.Drawing.Size(591, 24);
             this.cbxBenhNhan.TabIndex = 32;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(41, 144);
+            this.label5.Location = new System.Drawing.Point(42, 160);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 31;
@@ -81,7 +82,7 @@
             // 
             this.dateNgayHenGN.CustomFormat = "dd/MM/yyyy";
             this.dateNgayHenGN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNgayHenGN.Location = new System.Drawing.Point(173, 108);
+            this.dateNgayHenGN.Location = new System.Drawing.Point(174, 124);
             this.dateNgayHenGN.Name = "dateNgayHenGN";
             this.dateNgayHenGN.Size = new System.Drawing.Size(591, 22);
             this.dateNgayHenGN.TabIndex = 30;
@@ -90,14 +91,14 @@
             // 
             this.dateNgayHenTT.CustomFormat = "dd/MM/yyyy";
             this.dateNgayHenTT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNgayHenTT.Location = new System.Drawing.Point(172, 77);
+            this.dateNgayHenTT.Location = new System.Drawing.Point(173, 93);
             this.dateNgayHenTT.Name = "dateNgayHenTT";
             this.dateNgayHenTT.Size = new System.Drawing.Size(591, 22);
             this.dateNgayHenTT.TabIndex = 29;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(41, 113);
+            this.label4.Location = new System.Drawing.Point(42, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 28;
@@ -111,7 +112,7 @@
             this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(666, 245);
+            this.btnSave.Location = new System.Drawing.Point(667, 261);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 45);
             this.btnSave.TabIndex = 27;
@@ -120,7 +121,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(41, 215);
+            this.label3.Location = new System.Drawing.Point(42, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 26;
@@ -128,7 +129,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(41, 82);
+            this.label2.Location = new System.Drawing.Point(42, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 25;
@@ -136,7 +137,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(45, 45);
+            this.label1.Location = new System.Drawing.Point(46, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 24;
@@ -153,7 +154,7 @@
             this.txtGhiChu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGhiChu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGhiChu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGhiChu.Location = new System.Drawing.Point(172, 215);
+            this.txtGhiChu.Location = new System.Drawing.Point(173, 231);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.PasswordChar = '\0';
@@ -173,7 +174,7 @@
             this.txtMaLichHen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaLichHen.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaLichHen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaLichHen.Location = new System.Drawing.Point(172, 39);
+            this.txtMaLichHen.Location = new System.Drawing.Point(173, 55);
             this.txtMaLichHen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaLichHen.Name = "txtMaLichHen";
             this.txtMaLichHen.PasswordChar = '\0';
@@ -182,11 +183,22 @@
             this.txtMaLichHen.Size = new System.Drawing.Size(592, 23);
             this.txtMaLichHen.TabIndex = 22;
             // 
+            // controlbox_exit
+            // 
+            this.controlbox_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.controlbox_exit.FillColor = System.Drawing.Color.Transparent;
+            this.controlbox_exit.IconColor = System.Drawing.Color.Gray;
+            this.controlbox_exit.Location = new System.Drawing.Point(775, 0);
+            this.controlbox_exit.Name = "controlbox_exit";
+            this.controlbox_exit.Size = new System.Drawing.Size(45, 29);
+            this.controlbox_exit.TabIndex = 35;
+            // 
             // frm_add_lichhen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 317);
+            this.ClientSize = new System.Drawing.Size(820, 364);
+            this.Controls.Add(this.controlbox_exit);
             this.Controls.Add(this.cbxDichVu);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbxBenhNhan);
@@ -200,6 +212,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.txtMaLichHen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_add_lichhen";
             this.Text = "frm_add_lichhen";
             this.Load += new System.EventHandler(this.frm_add_lichhen_Load);
@@ -222,5 +235,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtGhiChu;
         private Guna.UI2.WinForms.Guna2TextBox txtMaLichHen;
+        private Guna.UI2.WinForms.Guna2ControlBox controlbox_exit;
     }
 }

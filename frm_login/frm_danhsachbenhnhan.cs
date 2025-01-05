@@ -26,7 +26,8 @@ namespace frm_login
         private void frm_danhsachbenhnhan_Load(object sender, EventArgs e)
         {
             Loaddata();
-            txt_timbnhan.TextChanged +=txt_timbnhan_TextChanged;
+            temp = count();
+            lbl_soluongbenhnhan.Text = $"{temp}";
         }
         public void  Loaddata()
         {
@@ -53,10 +54,10 @@ namespace frm_login
 
                     // Đặt tên cột DataPropertyName cho từng cột tương ứng
                     dta_dsbenhnhan.Columns["MaBenhNhan"].DataPropertyName = "MaBenhNhan";
-                    
-                    dta_dsbenhnhan.Columns["TenBenhNhan"].DataPropertyName = "TenBenhNhan";
-                    dta_dsbenhnhan.Columns["SoDienThoai"].DataPropertyName = "SoDienThoai";
                 dta_dsbenhnhan.Columns["ColumnAvatar"].DataPropertyName = "ColumnAvatar";
+                dta_dsbenhnhan.Columns["TenBenhNhan"].DataPropertyName = "TenBenhNhan";
+                    dta_dsbenhnhan.Columns["SoDienThoai"].DataPropertyName = "SoDienThoai";
+                    //dta_dsbenhnhan.Columns["ColumnAvatar"].DataPropertyName = "ColumnAvatar";
                     dta_dsbenhnhan.Columns["DiaChi"].DataPropertyName = "DiaChi";
                     
 
@@ -80,7 +81,7 @@ namespace frm_login
                     }
                     else
                     {
-                        row.Cells["ColumnAvatar"].Value = Properties.Resources.THUOC; // Ảnh mặc định nếu không có avatar
+                        row.Cells["ColumnAvatar"].Value = Properties.Resources.THUOC; 
                     }
                 }
             }
@@ -226,39 +227,7 @@ namespace frm_login
             }
         }
 
-        private void txt_timbnhan_TextChanged(object sender, EventArgs e)
-        {
-            string searchKeyword = txt_timbnhan.Text.Trim().ToLower(); // Lấy từ khóa tìm kiếm
-
-            if (string.IsNullOrEmpty(searchKeyword))
-            {
-                Loaddata(); // Nếu không có nội dung, tải lại toàn bộ danh sách
-                return;
-            }
-
-            try
-            {
-                // Tìm kiếm danh sách bệnh nhân chứa từ khóa trong mã hoặc tên
-                List<BenhNhan> filteredList = benhnhanServices
-                    .GetAll()
-                    .Where(bn => bn.MaBenhNhan.ToLower().Contains(searchKeyword) ||
-                                 bn.TenBenhNhan.ToLower().Contains(searchKeyword))
-                    .ToList();
-
-                // Hiển thị kết quả tìm kiếm trong DataGridView
-                dta_dsbenhnhan.DataSource = filteredList;
-                ProcessAvatarImages();
-
-                if (!filteredList.Any())
-                {
-                    MessageBox.Show("Không tìm thấy bệnh nhân phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Có lỗi xảy ra khi tìm kiếm: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+    
 
         private void cbx_sort_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -331,6 +300,51 @@ namespace frm_login
             {
                 MessageBox.Show($"Có lỗi khi lưu danh sách: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_tim_Click(object sender, EventArgs e)
+        {
+            string searchText = txt_timbnhan.Text.Trim().ToLower(); // Get the search text and convert it to lowercase
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                // If the search text is empty, reload the full list of patients
+                Loaddata();
+            }
+            else
+            {
+                using (var db = new Model1())
+                {
+                    // Filter the list of patients based on the search text (case-insensitive)
+                    var data = db.BenhNhans
+                                 .Where(bn => bn.TenBenhNhan.ToLower().Contains(searchText))
+                                 .ToList();
+
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy bệnh nhân với tên này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    // Update DataGridView with filtered data
+                    dta_dsbenhnhan.DataSource = null;
+                    dta_dsbenhnhan.DataSource = data;
+
+                    // Update the DataGridView columns
+                    dta_dsbenhnhan.Columns["MaBenhNhan"].DataPropertyName = "MaBenhNhan";
+                    dta_dsbenhnhan.Columns["TenBenhNhan"].DataPropertyName = "TenBenhNhan";
+                    dta_dsbenhnhan.Columns["SoDienThoai"].DataPropertyName = "SoDienThoai";
+                    dta_dsbenhnhan.Columns["ColumnAvatar"].DataPropertyName = "ColumnAvatar";
+                    dta_dsbenhnhan.Columns["DiaChi"].DataPropertyName = "DiaChi";
+
+                    // Process Avatar images
+                    ProcessAvatarImages();
+                }
+            }
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DAL_DA.Model1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ToaThuoc()
         {
-            Thuoc_ = new HashSet<Thuoc_>();
+            HoaDons = new HashSet<HoaDon>();
         }
 
         [Key]
@@ -22,21 +22,24 @@ namespace DAL_DA.Model1
         [StringLength(1000)]
         public string LieuLuon { get; set; }
 
-        public int? SoLuong { get; set; }
-
         [Required]
         [StringLength(50)]
-        public string MaHoaDon { get; set; }
+        public string MaThuoc { get; set; }
 
         [Required]
         [StringLength(50)]
         public string MaBenhNhan { get; set; }
 
+        public int? soluong { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? ngaylap { get; set; }
+
         public virtual BenhNhan BenhNhan { get; set; }
 
-        public virtual HoaDon HoaDon { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Thuoc_> Thuoc_ { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+
+        public virtual Thuoc_ Thuoc_ { get; set; }
     }
 }

@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BUS_DA;
-using DAL_DA.Model1;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using BUS_DA;
+    using DAL_DA.Model1;
+using System.Data.Entity; // Đảm bảo bạn đã thêm namespace này
 
 namespace frm_login
 {
@@ -20,95 +21,65 @@ namespace frm_login
             InitializeComponent();
         }
 
-        private readonly doanhthuService doanhThuServices = new doanhthuService();
-        private void guna2HtmlLabel26_Click(object sender, EventArgs e)
-        {
-
-        }
-        public void LoadData()
-        {
-            try
-            {
-                using (var db = new Model1())
-                {
-                    // Tắt tự động tạo cột nếu chưa làm
-                    dta_doanhthu.AutoGenerateColumns = false;
-
-                    // Truy vấn dữ liệu từ cơ sở dữ liệu
-                    var data = (from dt in db.DoanhThus
-                                join dv in db.DichVus on dt.MaDichVu equals dv.MaDichVu into dvJoin
-                                from dv in dvJoin.DefaultIfEmpty() // Liên kết trái
-                                select new
-                                {
-                                    dt.MaDoanhThu,
-                                    MaDichVu = dv.MaDichVu ?? "Chưa có dịch vụ", // Kiểm tra null
-                                    dt.NgayHoaDon,
-                                    dt.Gia
-                                }).ToList();
-
-                    // Gán dữ liệu vào DataGridView
-                    dta_doanhthu.DataSource = null; // Xóa dữ liệu cũ
-                    dta_doanhthu.DataSource = data;
-
-                    dta_doanhthu.Columns["MaDichVu"].DataPropertyName = "MaDichVu";
-                    dta_doanhthu.Columns["NgayHoaDon"].DataPropertyName = "NgayHoaDon";
-                    dta_doanhthu.Columns["Gia"].DataPropertyName = "Gia";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
         private void frm_doanhthu_Load(object sender, EventArgs e)
-        {
-            LoadData();
+        { // Đảm bảo tệp RDLC được chỉ định đúng
+            reportViewer1.LocalReport.ReportPath = @"Report1.rdlc"; // Chỉ định đường dẫn đúng tới tệp RDLC
 
-        }
+            // Lấy dữ liệu báo cáo
+            var baoCao = GenerateBaoCaoDoanhThu();
 
-        private void btn_them_Click(object sender, EventArgs e)
-        {
-            frm_addDoanhthu frm_Add_Doanhthu = new frm_addDoanhthu(false);
-            frm_Add_Doanhthu.ShowDialog();
-            LoadData();
-        }
-
-        private void dta_doanhthu_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dta_doanhthu.Rows.Count > 0 && e.RowIndex >= 0
-                && maDoanhThu != dta_doanhthu.Rows[e.RowIndex].Cells["Code"].Value.ToString())
+            // Kiểm tra dữ liệu có sẵn không
+            if (baoCao.Any())
             {
-                maDoanhThu = dta_doanhthu.Rows[e.RowIndex].Cells["Code"].Value.ToString();
+                // Gán nguồn dữ liệu
+                reportViewer1.LocalReport.DataSources.Clear();
+                var reportDataSource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", baoCao);
+                reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+                reportViewer1.RefreshReport();
             }
-            else if (dta_doanhthu.Rows.Count <= 0 || e.RowIndex < 0)
+            else
             {
-                maDoanhThu = "";
+                MessageBox.Show("Không có dữ liệu báo cáo để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void btn_sua_Click(object sender, EventArgs e)
+
+        private List<baoCaoDoanhThu> GenerateBaoCaoDoanhThu()
         {
-            if (maDoanhThu == "")
+            using (var db = new Model1())
             {
-                MessageBox.Show("Chưa chọn doanh thu", "Thông báo");
-                return;
+                var baoCao = db.HoaDons
+                    .Where(hd => hd.ngaylap.HasValue) // Chỉ lấy các hóa đơn có ngày lập
+                    .GroupBy(hd => DbFunctions.TruncateTime(hd.ngaylap.Value)) // TruncateTime loại bỏ giờ, phút, giây
+                    .Select(g => new baoCaoDoanhThu
+                    {
+                        Ngay = g.Key.Value, // Trả về ngày đã được loại bỏ giờ
+
+                        TongTienDichVu = g.Sum(hd =>
+                            db.DichVus
+                                .Where(dv => dv.MaDichVu == hd.MaDichVu)
+                                .Select(dv => dv.GiaDV ?? 0) // Lấy giá dịch vụ
+                                .FirstOrDefault()),
+
+                        TongTienThuoc = g.Sum(hd =>
+                            db.ToaThuocs
+                                .Where(tt => tt.MaToa == hd.MaToa)
+                                .Select(tt =>
+                                    db.Thuoc_
+                                        .Where(t => t.MaThuoc == tt.MaThuoc)
+                                        .Select(t => (t.GiaThuoc ?? 0) * tt.soluong) // Tính tổng tiền thuốc
+                                        .FirstOrDefault())
+                                .Sum() ?? 0) // Sử dụng `?? 0` để tránh null và tính tổng
+                    })
+                    .ToList();
+
+                return baoCao;
             }
-            frm_addDoanhthu frm_Add_Doanhthu = new frm_addDoanhthu(true, maDoanhThu);
-            frm_Add_Doanhthu.ShowDialog();
+        }
         }
 
-        private void BTN_XOA_Click(object sender, EventArgs e)
-        {
-            if (maDoanhThu == "")
-            {
-                MessageBox.Show("Chưa chọn doanh thu", "Thông báo");
-                return;
-            }
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa hay không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                doanhThuServices.delete(maDoanhThu);
-                MessageBox.Show("xóa doanh thu thành công", "Thông báo");
-            }
-        }
+
+
     }
-}
+
+

@@ -8,6 +8,12 @@ namespace DAL_DA.Model1
 
     public partial class Thuoc_
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Thuoc_()
+        {
+            ToaThuocs = new HashSet<ToaThuoc>();
+        }
+
         [Key]
         [StringLength(50)]
         public string MaThuoc { get; set; }
@@ -15,12 +21,9 @@ namespace DAL_DA.Model1
         [StringLength(100)]
         public string TenThuoc { get; set; }
 
-        public decimal? Gia { get; set; }
+        public decimal? GiaThuoc { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string MaToa { get; set; }
-
-        public virtual ToaThuoc ToaThuoc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ToaThuoc> ToaThuocs { get; set; }
     }
 }

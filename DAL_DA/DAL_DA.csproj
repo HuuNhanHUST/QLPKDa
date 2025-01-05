@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Model1\BenhNhan.cs" />
     <Compile Include="Model1\DichVu.cs" />
-    <Compile Include="Model1\DoanhThu.cs" />
     <Compile Include="Model1\HoaDon.cs" />
     <Compile Include="Model1\LichHen.cs" />
     <Compile Include="Model1\Model1.cs" />

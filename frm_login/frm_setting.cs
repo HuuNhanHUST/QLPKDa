@@ -23,5 +23,12 @@ namespace frm_login
         {
 
         }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            // Đóng toàn bộ ứng dụng và mở lại từ đầu
+            Application.Restart();
+
+        }
     }
 }

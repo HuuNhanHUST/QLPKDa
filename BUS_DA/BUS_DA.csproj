@@ -54,14 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="baoCaoDoanhThu.cs" />
     <Compile Include="BenhnhanDTO.cs" />
     <Compile Include="benhnhanService.cs" />
     <Compile Include="dichvuService.cs" />
-    <Compile Include="doanhthuService.cs" />
+    <Compile Include="HoadonService.cs" />
     <Compile Include="lichhenService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="thuocService.cs" />
     <Compile Include="tongquanService.cs" />
+    <Compile Include="TThoadon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

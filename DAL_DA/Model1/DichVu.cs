@@ -12,7 +12,6 @@ namespace DAL_DA.Model1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DichVu()
         {
-            DoanhThus = new HashSet<DoanhThu>();
             HoaDons = new HashSet<HoaDon>();
             LichHens = new HashSet<LichHen>();
         }
@@ -24,10 +23,7 @@ namespace DAL_DA.Model1
         [StringLength(100)]
         public string TenDichVu { get; set; }
 
-        public decimal? Gia { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DoanhThu> DoanhThus { get; set; }
+        public decimal? GiaDV { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }

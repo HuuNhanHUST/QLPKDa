@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -42,6 +45,27 @@
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -63,11 +87,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
+    <Compile Include="AddHoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddHoadon.Designer.cs">
+      <DependentUpon>AddHoadon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddDichvu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDichvu.Designer.cs">
+      <DependentUpon>frmAddDichvu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXuatHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXuatHD.Designer.cs">
+      <DependentUpon>frmXuatHD.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_addbenhnhan.cs">
       <SubType>Form</SubType>
@@ -75,17 +117,17 @@
     <Compile Include="frm_addbenhnhan.Designer.cs">
       <DependentUpon>frm_addbenhnhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_addDoanhthu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_addDoanhthu.Designer.cs">
-      <DependentUpon>frm_addDoanhthu.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_add_lichhen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_add_lichhen.Designer.cs">
       <DependentUpon>frm_add_lichhen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_add_toathuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_add_toathuoc.Designer.cs">
+      <DependentUpon>frm_add_toathuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_danhsachbenhnhan.cs">
       <SubType>Form</SubType>
@@ -93,11 +135,23 @@
     <Compile Include="frm_danhsachbenhnhan.Designer.cs">
       <DependentUpon>frm_danhsachbenhnhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_dichvu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_dichvu.Designer.cs">
+      <DependentUpon>frm_dichvu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_doanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_doanhthu.Designer.cs">
       <DependentUpon>frm_doanhthu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_hoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_hoadon.Designer.cs">
+      <DependentUpon>frm_hoadon.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_lichhen.cs">
       <SubType>Form</SubType>
@@ -137,23 +191,39 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="AddHoadon.resx">
+      <DependentUpon>AddHoadon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddDichvu.resx">
+      <DependentUpon>frmAddDichvu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXuatHD.resx">
+      <DependentUpon>frmXuatHD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_addbenhnhan.resx">
       <DependentUpon>frm_addbenhnhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_addDoanhthu.resx">
-      <DependentUpon>frm_addDoanhthu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_add_lichhen.resx">
       <DependentUpon>frm_add_lichhen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_add_toathuoc.resx">
+      <DependentUpon>frm_add_toathuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_danhsachbenhnhan.resx">
       <DependentUpon>frm_danhsachbenhnhan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_dichvu.resx">
+      <DependentUpon>frm_dichvu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_doanhthu.resx">
       <DependentUpon>frm_doanhthu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_hoadon.resx">
+      <DependentUpon>frm_hoadon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_lichhen.resx">
       <DependentUpon>frm_lichhen.cs</DependentUpon>
@@ -183,8 +253,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BUS_DA.baoCaoDoanhThu.datasource" />
+    <None Include="Properties\DataSources\BUS_DA.DoanhThuReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -222,6 +297,23 @@
       <Project>{9d95ec9f-7af8-456b-8b28-a83b513ed480}</Project>
       <Name>DAL_DA</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoadon.jpg" />
+    <None Include="Resources\dichvu.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

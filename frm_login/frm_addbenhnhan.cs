@@ -105,5 +105,15 @@ namespace frm_login
                 guna2PictureBox1.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
+
+        private void frm_addbenhnhan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void controlbox_exit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

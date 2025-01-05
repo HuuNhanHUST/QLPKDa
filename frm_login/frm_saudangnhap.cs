@@ -67,9 +67,7 @@ namespace frm_login
             lbl_val.Text = "Danh sách bệnh nhân";
             pictureBox_val.Image = Properties.Resources.benhnhan;
             frm_danhsachbenhnhan frm = new frm_danhsachbenhnhan();
-            frm.Owner = this;
-
-            // Mở form trong container
+            frm.Loaddata();
             container(frm);
         }
         private void controlbox_exit_Click(object sender, EventArgs e)
@@ -130,6 +128,18 @@ namespace frm_login
             container(new frm_thuoc());
         }
 
-       
+        private void btn_hoadon_Click(object sender, EventArgs e)
+        {
+            lbl_val.Text = "Hóa đơn";
+            pictureBox_val.Image = Properties.Resources.hoadon;
+            container(new frm_hoadon());
+        }
+
+        private void btn_dichvu_Click(object sender, EventArgs e)
+        {
+            lbl_val.Text = "dịch vụ";
+            pictureBox_val.Image = Properties.Resources.dichvu;
+            container(new frm_dichvu());
+        }
     }
 }

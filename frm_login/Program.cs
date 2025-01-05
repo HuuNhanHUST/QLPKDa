@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL_DA.Model1;
 
 namespace frm_login
 {
@@ -17,7 +18,7 @@ namespace frm_login
             AccountManager accountManager = new AccountManager();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_lichhen());
+            Application.Run(new Form1());
         }
     }
 }

@@ -83,9 +83,29 @@ namespace frm_login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dichvu {
+            get {
+                object obj = ResourceManager.GetObject("dichvu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap doanh_thu {
             get {
                 object obj = ResourceManager.GetObject("doanh_thu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoadon {
+            get {
+                object obj = ResourceManager.GetObject("hoadon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

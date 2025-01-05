@@ -31,8 +31,28 @@ using DAL_DA.Model1;
             private void frm_lichhen_Load(object sender, EventArgs e)
             {
               LoadData();
+                temp = count();
+            lbl_soluonghd.Text = temp.ToString();
+        }
+        private int temp;
+        public int count()
+        {
+            temp = dta_lichhen.Rows.Count;
 
+            if (dta_lichhen.AllowUserToAddRows)
+            {
+                temp--;
             }
+            if (this.Owner is frm_saudangnhap parentForm)
+            {
+                var frmTongQuan = parentForm.Controls.OfType<frm_tongquan>().FirstOrDefault();
+                if (frmTongQuan != null)
+                {
+                    frmTongQuan.UpdatePatientCount(temp);  // Cập nhật số lượng bệnh nhân vào frm_tongquan
+                }
+            }
+            return temp;
+        }
         private void LoadData()
         {
             try

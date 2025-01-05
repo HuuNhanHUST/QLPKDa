@@ -9,18 +9,15 @@ namespace DAL_DA.Model1
     [Table("HoaDon")]
     public partial class HoaDon
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HoaDon()
-        {
-            ToaThuocs = new HashSet<ToaThuoc>();
-        }
-
         [Key]
         [StringLength(50)]
         public string MaHoaDon { get; set; }
 
-        [StringLength(100)]
-        public string GhiChu { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? ngaylap { get; set; }
+
+        [StringLength(50)]
+        public string MaToa { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -33,7 +30,6 @@ namespace DAL_DA.Model1
 
         public virtual DichVu DichVu { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ToaThuoc> ToaThuocs { get; set; }
+        public virtual ToaThuoc ToaThuoc { get; set; }
     }
 }

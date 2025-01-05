@@ -13,8 +13,10 @@ namespace DAL_DA.Model1
         [StringLength(50)]
         public string MaLichHen { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? NgayHenTT { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? NgayHenGN { get; set; }
 
         [Required]

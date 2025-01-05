@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_tim = new Guna.UI2.WinForms.Guna2Button();
             this.txt_timbnhan = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_timbnhan = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbx_sort = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -45,18 +46,19 @@
             this.btn_them = new Guna.UI2.WinForms.Guna2Button();
             this.btn_xoa = new Guna.UI2.WinForms.Guna2Button();
             this.dta_dsbenhnhan = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.MaBenhNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAvatar = new System.Windows.Forms.DataGridViewImageColumn();
             this.TenBenhNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dta_dsbenhnhan)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.btn_tim);
             this.guna2Panel1.Controls.Add(this.txt_timbnhan);
             this.guna2Panel1.Controls.Add(this.btn_timbnhan);
             this.guna2Panel1.Controls.Add(this.cbx_sort);
@@ -72,6 +74,26 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1040, 68);
             this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btn_tim
+            // 
+            this.btn_tim.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_tim.BorderRadius = 5;
+            this.btn_tim.BorderThickness = 1;
+            this.btn_tim.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_tim.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_tim.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_tim.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_tim.FillColor = System.Drawing.Color.Transparent;
+            this.btn_tim.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_tim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_tim.Location = new System.Drawing.Point(655, 18);
+            this.btn_tim.Name = "btn_tim";
+            this.btn_tim.Size = new System.Drawing.Size(91, 31);
+            this.btn_tim.TabIndex = 10;
+            this.btn_tim.Text = "Tìm ";
+            this.btn_tim.Click += new System.EventHandler(this.btn_tim_Click);
             // 
             // txt_timbnhan
             // 
@@ -92,7 +114,6 @@
             this.txt_timbnhan.SelectedText = "";
             this.txt_timbnhan.Size = new System.Drawing.Size(143, 31);
             this.txt_timbnhan.TabIndex = 9;
-            this.txt_timbnhan.TextChanged += new System.EventHandler(this.txt_timbnhan_TextChanged);
             // 
             // btn_timbnhan
             // 
@@ -137,7 +158,7 @@
             this.btn_taitep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_taitep.Image = ((System.Drawing.Image)(resources.GetObject("btn_taitep.Image")));
             this.btn_taitep.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_taitep.Location = new System.Drawing.Point(715, 12);
+            this.btn_taitep.Location = new System.Drawing.Point(784, 12);
             this.btn_taitep.Name = "btn_taitep";
             this.btn_taitep.Size = new System.Drawing.Size(63, 37);
             this.btn_taitep.TabIndex = 5;
@@ -293,12 +314,6 @@
             this.dta_dsbenhnhan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dta_dsbenhnhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dta_dsbenhnhan_CellClick);
             // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
             // MaBenhNhan
             // 
             this.MaBenhNhan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -344,6 +359,12 @@
             this.DiaChi.MinimumWidth = 6;
             this.DiaChi.Name = "DiaChi";
             // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // frm_danhsachbenhnhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -384,5 +405,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenBenhNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
+        private Guna.UI2.WinForms.Guna2Button btn_tim;
     }
 }

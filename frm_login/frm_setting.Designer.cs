@@ -83,9 +83,10 @@
             this.btn_sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btn_sua.Location = new System.Drawing.Point(341, 204);
             this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(91, 31);
+            this.btn_sua.Size = new System.Drawing.Size(127, 31);
             this.btn_sua.TabIndex = 9;
-            this.btn_sua.Text = "Sửa";
+            this.btn_sua.Text = "Đăng xuất";
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // guna2HtmlLabel9
             // 

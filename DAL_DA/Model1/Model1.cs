@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
@@ -14,7 +14,6 @@ namespace DAL_DA.Model1
 
         public virtual DbSet<BenhNhan> BenhNhans { get; set; }
         public virtual DbSet<DichVu> DichVus { get; set; }
-        public virtual DbSet<DoanhThu> DoanhThus { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<LichHen> LichHens { get; set; }
         public virtual DbSet<Thuoc_> Thuoc_ { get; set; }
@@ -51,27 +50,13 @@ namespace DAL_DA.Model1
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DichVu>()
-                .HasMany(e => e.DoanhThus)
-                .WithRequired(e => e.DichVu)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DoanhThu>()
-                .Property(e => e.MaDoanhThu)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DoanhThu>()
-                .Property(e => e.MaDichVu)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DoanhThu>()
-                .Property(e => e.Gia)
-                .HasPrecision(18, 0);
-
             modelBuilder.Entity<HoaDon>()
                 .Property(e => e.MaHoaDon)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<HoaDon>()
+                .Property(e => e.MaToa)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -84,11 +69,6 @@ namespace DAL_DA.Model1
                 .Property(e => e.MaDichVu)
                 .IsFixedLength()
                 .IsUnicode(false);
-
-            modelBuilder.Entity<HoaDon>()
-                .HasMany(e => e.ToaThuocs)
-                .WithRequired(e => e.HoaDon)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LichHen>()
                 .Property(e => e.MaLichHen)
@@ -111,9 +91,9 @@ namespace DAL_DA.Model1
                 .IsUnicode(false);
 
             modelBuilder.Entity<Thuoc_>()
-                .Property(e => e.MaToa)
-                .IsFixedLength()
-                .IsUnicode(false);
+                .HasMany(e => e.ToaThuocs)
+                .WithRequired(e => e.Thuoc_)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ToaThuoc>()
                 .Property(e => e.MaToa)
@@ -121,7 +101,7 @@ namespace DAL_DA.Model1
                 .IsUnicode(false);
 
             modelBuilder.Entity<ToaThuoc>()
-                .Property(e => e.MaHoaDon)
+                .Property(e => e.MaThuoc)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -129,11 +109,6 @@ namespace DAL_DA.Model1
                 .Property(e => e.MaBenhNhan)
                 .IsFixedLength()
                 .IsUnicode(false);
-
-            modelBuilder.Entity<ToaThuoc>()
-                .HasMany(e => e.Thuoc_)
-                .WithRequired(e => e.ToaThuoc)
-                .WillCascadeOnDelete(false);
         }
     }
 }
