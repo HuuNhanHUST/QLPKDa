@@ -61,7 +61,6 @@ namespace frm_login
             {
                 using (var db = new Model1())
                 {
-                    // Đảm bảo rằng tự động tạo cột bị tắt
                     dta_thuoc.AutoGenerateColumns = false;
 
                     var data = (from toath in db.ToaThuocs
@@ -84,8 +83,7 @@ namespace frm_login
                         return;
                     }
 
-                    // Làm sạch dữ liệu cũ trước khi gán dữ liệu mới
-                    dta_thuoc.DataSource = data; // Cập nhật lại DataSource
+                    dta_thuoc.DataSource = data;
 
                     ProcessAvatarImages();
                 }

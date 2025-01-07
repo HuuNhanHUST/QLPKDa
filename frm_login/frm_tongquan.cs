@@ -61,9 +61,19 @@ namespace frm_login
 
         private void btn_benhnhann_Click(object sender, EventArgs e)
         {
-            parentForm.container(new frm_danhsachbenhnhan());
+            // Tạo mới đối tượng frm_danhsachbenhnhan
+            frm_danhsachbenhnhan frm = new frm_danhsachbenhnhan();
+
+            // Load dữ liệu vào form
+            frm.Loaddata();
+
+            // Thêm form vào container của parentForm
+            parentForm.container(frm);
+
+            // Cập nhật các giá trị khác của parentForm (như tiêu đề, hình ảnh)
             parentForm.lbl_val.Text = "Danh sách bệnh nhân";
             parentForm.pictureBox_val.Image = Properties.Resources.benhnhan;
+
         }
 
         private void btn_lichhenn_Click(object sender, EventArgs e)

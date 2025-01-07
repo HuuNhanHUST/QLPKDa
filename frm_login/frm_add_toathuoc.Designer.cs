@@ -49,7 +49,7 @@
             // 
             this.cbxThuoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxThuoc.FormattingEnabled = true;
-            this.cbxThuoc.Location = new System.Drawing.Point(176, 130);
+            this.cbxThuoc.Location = new System.Drawing.Point(173, 130);
             this.cbxThuoc.Name = "cbxThuoc";
             this.cbxThuoc.Size = new System.Drawing.Size(591, 24);
             this.cbxThuoc.TabIndex = 47;
@@ -67,7 +67,7 @@
             // 
             this.cbxBenhNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBenhNhan.FormattingEnabled = true;
-            this.cbxBenhNhan.Location = new System.Drawing.Point(174, 89);
+            this.cbxBenhNhan.Location = new System.Drawing.Point(172, 89);
             this.cbxBenhNhan.Name = "cbxBenhNhan";
             this.cbxBenhNhan.Size = new System.Drawing.Size(591, 24);
             this.cbxBenhNhan.TabIndex = 45;
@@ -89,7 +89,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(669, 284);
+            this.btnSave.Location = new System.Drawing.Point(690, 307);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 45);
             this.btnSave.TabIndex = 40;
@@ -98,7 +98,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(45, 197);
+            this.label3.Location = new System.Drawing.Point(43, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 39;
@@ -123,7 +123,7 @@
             this.txtGhiChu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGhiChu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGhiChu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGhiChu.Location = new System.Drawing.Point(174, 197);
+            this.txtGhiChu.Location = new System.Drawing.Point(171, 218);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.PasswordChar = '\0';
@@ -154,7 +154,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(45, 245);
+            this.label2.Location = new System.Drawing.Point(43, 263);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 48;
@@ -162,16 +162,16 @@
             // 
             // dateNgayLap
             // 
-            this.dateNgayLap.CustomFormat = "dd/MM/yyyy";
+            this.dateNgayLap.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNgayLap.Location = new System.Drawing.Point(172, 240);
+            this.dateNgayLap.Location = new System.Drawing.Point(174, 264);
             this.dateNgayLap.Name = "dateNgayLap";
             this.dateNgayLap.Size = new System.Drawing.Size(591, 22);
             this.dateNgayLap.TabIndex = 49;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(43, 161);
+            this.label4.Location = new System.Drawing.Point(43, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 50;
@@ -188,7 +188,7 @@
             this.txt_soluong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_soluong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_soluong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_soluong.Location = new System.Drawing.Point(174, 161);
+            this.txt_soluong.Location = new System.Drawing.Point(170, 175);
             this.txt_soluong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_soluong.Name = "txt_soluong";
             this.txt_soluong.PasswordChar = '\0';

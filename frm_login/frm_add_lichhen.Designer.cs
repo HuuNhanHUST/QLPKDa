@@ -42,20 +42,21 @@
             this.txtGhiChu = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaLichHen = new Guna.UI2.WinForms.Guna2TextBox();
             this.controlbox_exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.time_giohenTT = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // cbxDichVu
             // 
             this.cbxDichVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDichVu.FormattingEnabled = true;
-            this.cbxDichVu.Location = new System.Drawing.Point(174, 194);
+            this.cbxDichVu.Location = new System.Drawing.Point(173, 215);
             this.cbxDichVu.Name = "cbxDichVu";
             this.cbxDichVu.Size = new System.Drawing.Size(591, 24);
             this.cbxDichVu.TabIndex = 34;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(43, 197);
+            this.label6.Location = new System.Drawing.Point(42, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 23);
             this.label6.TabIndex = 33;
@@ -65,14 +66,15 @@
             // 
             this.cbxBenhNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxBenhNhan.FormattingEnabled = true;
-            this.cbxBenhNhan.Location = new System.Drawing.Point(173, 157);
+            this.cbxBenhNhan.Location = new System.Drawing.Point(172, 182);
             this.cbxBenhNhan.Name = "cbxBenhNhan";
             this.cbxBenhNhan.Size = new System.Drawing.Size(591, 24);
             this.cbxBenhNhan.TabIndex = 32;
+            this.cbxBenhNhan.SelectedIndexChanged += new System.EventHandler(this.cbxBenhNhan_SelectedIndexChanged);
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(42, 160);
+            this.label5.Location = new System.Drawing.Point(42, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 31;
@@ -82,23 +84,23 @@
             // 
             this.dateNgayHenGN.CustomFormat = "dd/MM/yyyy";
             this.dateNgayHenGN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNgayHenGN.Location = new System.Drawing.Point(174, 124);
+            this.dateNgayHenGN.Location = new System.Drawing.Point(173, 142);
             this.dateNgayHenGN.Name = "dateNgayHenGN";
-            this.dateNgayHenGN.Size = new System.Drawing.Size(591, 22);
+            this.dateNgayHenGN.Size = new System.Drawing.Size(590, 22);
             this.dateNgayHenGN.TabIndex = 30;
             // 
             // dateNgayHenTT
             // 
             this.dateNgayHenTT.CustomFormat = "dd/MM/yyyy";
             this.dateNgayHenTT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateNgayHenTT.Location = new System.Drawing.Point(173, 93);
+            this.dateNgayHenTT.Location = new System.Drawing.Point(174, 102);
             this.dateNgayHenTT.Name = "dateNgayHenTT";
-            this.dateNgayHenTT.Size = new System.Drawing.Size(591, 22);
+            this.dateNgayHenTT.Size = new System.Drawing.Size(291, 22);
             this.dateNgayHenTT.TabIndex = 29;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(42, 129);
+            this.label4.Location = new System.Drawing.Point(42, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 28;
@@ -112,7 +114,7 @@
             this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(667, 261);
+            this.btnSave.Location = new System.Drawing.Point(667, 307);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 45);
             this.btnSave.TabIndex = 27;
@@ -121,7 +123,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(42, 231);
+            this.label3.Location = new System.Drawing.Point(42, 255);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 26;
@@ -129,7 +131,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(42, 98);
+            this.label2.Location = new System.Drawing.Point(42, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 25;
@@ -154,7 +156,7 @@
             this.txtGhiChu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGhiChu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGhiChu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGhiChu.Location = new System.Drawing.Point(173, 231);
+            this.txtGhiChu.Location = new System.Drawing.Point(172, 255);
             this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.PasswordChar = '\0';
@@ -193,11 +195,22 @@
             this.controlbox_exit.Size = new System.Drawing.Size(45, 29);
             this.controlbox_exit.TabIndex = 35;
             // 
+            // time_giohenTT
+            // 
+            this.time_giohenTT.CustomFormat = "HH:mm";
+            this.time_giohenTT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.time_giohenTT.Location = new System.Drawing.Point(474, 102);
+            this.time_giohenTT.Name = "time_giohenTT";
+            this.time_giohenTT.ShowUpDown = true;
+            this.time_giohenTT.Size = new System.Drawing.Size(291, 22);
+            this.time_giohenTT.TabIndex = 36;
+            // 
             // frm_add_lichhen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 364);
+            this.Controls.Add(this.time_giohenTT);
             this.Controls.Add(this.controlbox_exit);
             this.Controls.Add(this.cbxDichVu);
             this.Controls.Add(this.label6);
@@ -214,6 +227,7 @@
             this.Controls.Add(this.txtMaLichHen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_add_lichhen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_add_lichhen";
             this.Load += new System.EventHandler(this.frm_add_lichhen_Load);
             this.ResumeLayout(false);
@@ -236,5 +250,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtGhiChu;
         private Guna.UI2.WinForms.Guna2TextBox txtMaLichHen;
         private Guna.UI2.WinForms.Guna2ControlBox controlbox_exit;
+        private System.Windows.Forms.DateTimePicker time_giohenTT;
     }
 }

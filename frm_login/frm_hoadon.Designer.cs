@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_hoadon));
             this.dta_hoadon = new Guna.UI2.WinForms.Guna2DataGridView();
             this.MaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,16 +57,16 @@
             // dta_hoadon
             // 
             this.dta_hoadon.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dta_hoadon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dta_hoadon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dta_hoadon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dta_hoadon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dta_hoadon.ColumnHeadersHeight = 40;
             this.dta_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dta_hoadon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -77,14 +77,14 @@
             this.GiaDV,
             this.TenThuoc,
             this.GiaThuoc});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dta_hoadon.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dta_hoadon.DefaultCellStyle = dataGridViewCellStyle6;
             this.dta_hoadon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dta_hoadon.Location = new System.Drawing.Point(19, 133);
             this.dta_hoadon.Name = "dta_hoadon";
@@ -203,9 +203,9 @@
             this.btn_taitep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_taitep.Image = ((System.Drawing.Image)(resources.GetObject("btn_taitep.Image")));
             this.btn_taitep.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_taitep.Location = new System.Drawing.Point(859, 12);
+            this.btn_taitep.Location = new System.Drawing.Point(762, 3);
             this.btn_taitep.Name = "btn_taitep";
-            this.btn_taitep.Size = new System.Drawing.Size(63, 37);
+            this.btn_taitep.Size = new System.Drawing.Size(72, 51);
             this.btn_taitep.TabIndex = 16;
             this.btn_taitep.Click += new System.EventHandler(this.btn_taitep_Click);
             // 
@@ -244,7 +244,8 @@
             this.btn_timhd.FillColor = System.Drawing.Color.Transparent;
             this.btn_timhd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_timhd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_timhd.Location = new System.Drawing.Point(731, 18);
+            this.btn_timhd.Image = ((System.Drawing.Image)(resources.GetObject("btn_timhd.Image")));
+            this.btn_timhd.Location = new System.Drawing.Point(625, 12);
             this.btn_timhd.Name = "btn_timhd";
             this.btn_timhd.Size = new System.Drawing.Size(91, 31);
             this.btn_timhd.TabIndex = 13;
@@ -262,13 +263,13 @@
             this.txt_timhd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_timhd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_timhd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_timhd.Location = new System.Drawing.Point(573, 18);
+            this.txt_timhd.Location = new System.Drawing.Point(465, 11);
             this.txt_timhd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_timhd.Name = "txt_timhd";
             this.txt_timhd.PasswordChar = '\0';
             this.txt_timhd.PlaceholderText = "";
             this.txt_timhd.SelectedText = "";
-            this.txt_timhd.Size = new System.Drawing.Size(143, 31);
+            this.txt_timhd.Size = new System.Drawing.Size(154, 31);
             this.txt_timhd.TabIndex = 12;
             // 
             // cbx_sorthoadon
@@ -284,7 +285,7 @@
             this.cbx_sorthoadon.Items.AddRange(new object[] {
             "Giá tăng dần",
             "Giá giảm dần"});
-            this.cbx_sorthoadon.Location = new System.Drawing.Point(337, 13);
+            this.cbx_sorthoadon.Location = new System.Drawing.Point(236, 7);
             this.cbx_sorthoadon.Name = "cbx_sorthoadon";
             this.cbx_sorthoadon.Size = new System.Drawing.Size(154, 36);
             this.cbx_sorthoadon.TabIndex = 11;
@@ -301,9 +302,11 @@
             this.btn_sua.FillColor = System.Drawing.Color.Transparent;
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_sua.Location = new System.Drawing.Point(947, 12);
+            this.btn_sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_sua.Image")));
+            this.btn_sua.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_sua.Location = new System.Drawing.Point(871, 3);
             this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(63, 37);
+            this.btn_sua.Size = new System.Drawing.Size(85, 51);
             this.btn_sua.TabIndex = 5;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
@@ -320,7 +323,8 @@
             this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.guna2Button3.Location = new System.Drawing.Point(902, 623);
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
+            this.guna2Button3.Location = new System.Drawing.Point(883, 623);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(93, 31);
             this.guna2Button3.TabIndex = 9;
@@ -339,7 +343,8 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.guna2Button1.Location = new System.Drawing.Point(785, 623);
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.Location = new System.Drawing.Point(743, 623);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(91, 31);
             this.guna2Button1.TabIndex = 8;

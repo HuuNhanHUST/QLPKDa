@@ -32,7 +32,7 @@ using DAL_DA.Model1;
             {
               LoadData();
                 temp = count();
-            lbl_soluonghd.Text = temp.ToString();
+              lbl_soluonghd.Text = temp.ToString();
         }
         private int temp;
         public int count()
@@ -59,38 +59,38 @@ using DAL_DA.Model1;
             {
                 using (var db = new Model1())
                 {
-                    // Tắt tự động tạo cột nếu chưa làm
                     dta_lichhen.AutoGenerateColumns = false;
 
                     // Truy vấn dữ liệu từ cơ sở dữ liệu
                     var data = (from lh in db.LichHens
-                        join bn in db.BenhNhans on lh.MaBenhNhan equals bn.MaBenhNhan
-                        join dv in db.DichVus on lh.MaDichVu equals dv.MaDichVu
-                        select new
-                        {
-                            lh.MaLichHen,
-                            Avatar = bn.Avatar, // Hình ảnh
-                            TenBenhNhan = bn.TenBenhNhan,
-                            NgayHenTT = lh.NgayHenTT,
-                            NgayHenGN = lh.NgayHenGN,
-                            TenDichVu = dv.TenDichVu,
-                            GhiChu = lh.Ghichu
-                        }).ToList();
+                                join bn in db.BenhNhans on lh.MaBenhNhan equals bn.MaBenhNhan
+                                join dv in db.DichVus on lh.MaDichVu equals dv.MaDichVu
+                                select new
+                                {
+                                    lh.MaLichHen,
+                                    Avatar = bn.Avatar,
+                                    TenBenhNhan = bn.TenBenhNhan,
+                                    NgayHenTT = lh.NgayHenTT,
+                                    NgayHenGN = lh.NgayHenGN,
+                                    TenDichVu = dv.TenDichVu,
+                                    GhiChu = lh.Ghichu
+                                }).ToList();
+
+                    // Định dạng ngày giờ
+                    var formattedData = data.Select(x => new
+                    {
+                        x.MaLichHen,
+                        x.Avatar,
+                        x.TenBenhNhan,
+                        NgayHenTT = x.NgayHenTT.HasValue ? x.NgayHenTT.Value.ToString("dd/MM/yyyy HH:mm:ss") : "",
+                        NgayHenGN = x.NgayHenGN.HasValue ? x.NgayHenGN.Value.ToString("dd/MM/yyyy") : "",
+                        x.TenDichVu,
+                        x.GhiChu
+                    }).ToList();
 
                     // Gán dữ liệu vào DataGridView
-                    dta_lichhen.DataSource = null; // Xóa dữ liệu cũ
-                    dta_lichhen.DataSource = data;
+                    dta_lichhen.DataSource = formattedData;
 
-                    // Đặt tên cột DataPropertyName cho từng cột tương ứng
-                    dta_lichhen.Columns["Column1"].DataPropertyName = "MaLichHen";
-                    dta_lichhen.Columns["Column2"].DataPropertyName = "Avatar";
-                    dta_lichhen.Columns["Column3"].DataPropertyName = "TenBenhNhan";
-                    dta_lichhen.Columns["Column4"].DataPropertyName = "NgayHenTT";
-                    dta_lichhen.Columns["Column5"].DataPropertyName = "NgayHenGN";
-                    dta_lichhen.Columns["Column6"].DataPropertyName = "TenDichVu";
-                    dta_lichhen.Columns["Column7"].DataPropertyName = "GhiChu";
-
-                    // Xử lý hiển thị hình ảnh trong cột Avatar
                     ProcessAvatarImages();
                 }
             }

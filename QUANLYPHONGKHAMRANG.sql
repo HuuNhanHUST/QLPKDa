@@ -30,20 +30,21 @@ CREATE TABLE Thuoc_ (
 create TABLE ToaThuoc (
     MaToa CHAR(50) NOT NULL,
     LieuLuon NVARCHAR(1000) NULL,
-	  MaThuoc CHAR(50) NOT NULL,
+	MaThuoc CHAR(50) NOT NULL,
     MaBenhNhan CHAR(50) NOT NULL,
 	soluong int,
-    ngaylap date,
+    ngaylap datetime,
     PRIMARY KEY (MaToa),
     FOREIGN KEY (MaBenhNhan) REFERENCES BenhNhan (MaBenhNhan),
 	FOREIGN KEY (MaThuoc) REFERENCES Thuoc_ (MaThuoc)
 );
 select * from toathuoc
 -- Tạo bảng LichHen
-CREATE TABLE LichHen (
+create TABLE LichHen (
     MaLichHen CHAR(50) NOT NULL,
-    NgayHenTT date NULL,
-    NgayHenGN date NULL,
+    NgayHenGN datetime null,
+    NgayHenTT datetime,
+
     MaBenhNhan CHAR(50) NOT NULL,
     MaDichVu CHAR(50),
     Ghichu NVARCHAR(1000),
@@ -55,13 +56,12 @@ CREATE TABLE LichHen (
 -- Tạo bảng HoaDon với MaBenhNhan là khóa ngoại tham chiếu đến bảng BenhNhan
 create TABLE HoaDon (
     MaHoaDon CHAR(50) NOT NULL,
-    ngaylap date,
-	MaToa CHAR(50) NOT NULL,
+    ngaylap datetime,
+	MaToa CHAR(50)  NULL,
     MaBenhNhan CHAR(50) NOT NULL,
     PRIMARY KEY (MaHoaDon),
 	FOREIGN KEY (MaBenhNhan) REFERENCES BenhNhan (MaBenhNhan),
-	MaDichVu CHAR(50) NOT NULL, 
-	FOREIGN KEY (MaDichVu) REFERENCES DichVu (MaDichVu), -- Liên kết với bảng ToaThuoc
+	MaDichVu CHAR(50)  NULL, 
 	FOREIGN KEY (MaToa) REFERENCES ToaThuoc (MaToa) -- Liên kết với bảng ToaThuoc
 );
 
@@ -80,31 +80,22 @@ INSERT INTO Thuoc_ (MaThuoc, TenThuoc, GiaThuoc) VALUES
 ('TH002', N'Amoxicillin', 50000),
 ('TH003', N'Vitamin C', 15000);
 INSERT INTO ToaThuoc (MaToa, MaThuoc,LieuLuon, MaBenhNhan, ngaylap,soluong) VALUES
-('TOA001','TH001', N'Uống 2 viên mỗi ngày sau ăn', 'BN001', '2025-01-02',10),
-('TOA002','TH002', N'Uống 1 viên mỗi sáng', 'BN002', '2025-01-02',100);
+('TOA001','TH001', N'Uống 2 viên mỗi ngày sau ăn', 'BN001', '2025-01-04 08:30:00',10),
+('TOA002','TH002', N'Uống 1 viên mỗi sáng', 'BN002', '2025-01-12 14:45:00',100);
 
 
-INSERT INTO LichHen (MaLichHen, NgayHenTT, NgayHenGN, MaBenhNhan, MaDichVu, Ghichu) VALUES
-('LH001', '2025-01-05', '2025-01-10', 'BN001', 'DV001', N'Khám sức khỏe định kỳ'),
-('LH002', '2025-01-06', '2025-01-12', 'BN002', 'DV002', N'Xét nghiệm máu định kỳ')
+INSERT INTO LichHen (MaLichHen, NgayHenGN, NgayHenTT, MaBenhNhan, MaDichVu, Ghichu) 
+VALUES
+('LH001', NULL, '2025-01-04 08:30:00', 'BN001', 'DV001', N'Khám sức khỏe định kỳ'),
+('LH002', NULL, '2025-01-12 14:45:00', 'BN002', 'DV002', N'Xét nghiệm máu định kỳ');
 
 
-INSERT INTO HoaDon (MaHoaDon, MaToa,MaDichVu, ngaylap, MaBenhNhan) VALUES
-('HD001', 'TOA001','DV001', '2025-01-02', 'BN001'),
-('HD002', 'TOA002','DV002', '2025-01-02', 'BN002');
 
 select *from DichVu
 
 select *from hoadon  
 
-ALTER TABLE HoaDon
-DROP CONSTRAINT FK_HoaDon_ToaThuoc;
-
-ALTER TABLE HoaDon
-ADD CONSTRAINT FK_HoaDon_ToaThuoc 
-FOREIGN KEY (MaToa) REFERENCES ToaThuoc(MaToa) ON DELETE SET NULL;
-
-ALTER TABLE HoaDon ALTER COLUMN MaToa CHAR(50) NULL;
-ALTER TABLE HoaDon ALTER COLUMN MaDichVu CHAR(50) NULL;
-
+select *from LichHen
+select *from ToaThuoc
 select *from BenhNhan
+

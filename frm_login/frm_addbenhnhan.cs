@@ -65,6 +65,12 @@ namespace frm_login
         {
             try
             {
+                // Nếu người dùng không chọn ảnh, gán ảnh mặc định
+                if (guna2PictureBox1.Image == null)
+                {
+                    guna2PictureBox1.Image = Properties.Resources.defaultAVT;
+                }
+
                 if (benhNhan == null) // Thêm mới
                 {
                     benhNhan = new BenhNhan
@@ -73,15 +79,15 @@ namespace frm_login
                         TenBenhNhan = txthoten.Text,
                         SoDienThoai = txt_phoen.Text,
                         DiaChi = txt_address.Text,
-                        Avatar = guna2PictureBox1.Image != null ? ConvertImageToByteArray(guna2PictureBox1.Image) : null
+                        Avatar = ConvertImageToByteArray(guna2PictureBox1.Image)
                     };
                 }
-                else 
+                else // Sửa thông tin
                 {
                     benhNhan.TenBenhNhan = txthoten.Text;
                     benhNhan.SoDienThoai = txt_phoen.Text;
                     benhNhan.DiaChi = txt_address.Text;
-                    benhNhan.Avatar = guna2PictureBox1.Image != null ? ConvertImageToByteArray(guna2PictureBox1.Image) : null;
+                    benhNhan.Avatar = ConvertImageToByteArray(guna2PictureBox1.Image);
                 }
 
                 this.DialogResult = DialogResult.OK;

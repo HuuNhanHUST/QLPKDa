@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_danhsachbenhnhan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_tim = new Guna.UI2.WinForms.Guna2Button();
             this.txt_timbnhan = new Guna.UI2.WinForms.Guna2TextBox();
@@ -88,6 +88,7 @@
             this.btn_tim.FillColor = System.Drawing.Color.Transparent;
             this.btn_tim.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_tim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_tim.Image = ((System.Drawing.Image)(resources.GetObject("btn_tim.Image")));
             this.btn_tim.Location = new System.Drawing.Point(655, 18);
             this.btn_tim.Name = "btn_tim";
             this.btn_tim.Size = new System.Drawing.Size(91, 31);
@@ -158,9 +159,9 @@
             this.btn_taitep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_taitep.Image = ((System.Drawing.Image)(resources.GetObject("btn_taitep.Image")));
             this.btn_taitep.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_taitep.Location = new System.Drawing.Point(784, 12);
+            this.btn_taitep.Location = new System.Drawing.Point(784, 5);
             this.btn_taitep.Name = "btn_taitep";
-            this.btn_taitep.Size = new System.Drawing.Size(63, 37);
+            this.btn_taitep.Size = new System.Drawing.Size(73, 44);
             this.btn_taitep.TabIndex = 5;
             this.btn_taitep.Click += new System.EventHandler(this.btn_taitep_Click);
             // 
@@ -175,9 +176,11 @@
             this.btn_sua.FillColor = System.Drawing.Color.Transparent;
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_sua.Location = new System.Drawing.Point(934, 12);
+            this.btn_sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_sua.Image")));
+            this.btn_sua.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_sua.Location = new System.Drawing.Point(893, 3);
             this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(63, 37);
+            this.btn_sua.Size = new System.Drawing.Size(80, 46);
             this.btn_sua.TabIndex = 4;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
@@ -228,7 +231,8 @@
             this.btn_them.FillColor = System.Drawing.Color.Transparent;
             this.btn_them.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_them.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_them.Location = new System.Drawing.Point(808, 643);
+            this.btn_them.Image = ((System.Drawing.Image)(resources.GetObject("btn_them.Image")));
+            this.btn_them.Location = new System.Drawing.Point(766, 643);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(91, 31);
             this.btn_them.TabIndex = 1;
@@ -247,7 +251,8 @@
             this.btn_xoa.FillColor = System.Drawing.Color.Transparent;
             this.btn_xoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_xoa.Location = new System.Drawing.Point(925, 643);
+            this.btn_xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_xoa.Image")));
+            this.btn_xoa.Location = new System.Drawing.Point(903, 643);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(93, 31);
             this.btn_xoa.TabIndex = 2;
@@ -257,16 +262,16 @@
             // dta_dsbenhnhan
             // 
             this.dta_dsbenhnhan.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dta_dsbenhnhan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dta_dsbenhnhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dta_dsbenhnhan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dta_dsbenhnhan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dta_dsbenhnhan.ColumnHeadersHeight = 40;
             this.dta_dsbenhnhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dta_dsbenhnhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -275,14 +280,14 @@
             this.TenBenhNhan,
             this.SoDienThoai,
             this.DiaChi});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dta_dsbenhnhan.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dta_dsbenhnhan.DefaultCellStyle = dataGridViewCellStyle9;
             this.dta_dsbenhnhan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.dta_dsbenhnhan.Location = new System.Drawing.Point(12, 116);
             this.dta_dsbenhnhan.Name = "dta_dsbenhnhan";

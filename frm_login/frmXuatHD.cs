@@ -67,65 +67,63 @@
 
             private void guna2Button1_Click(object sender, EventArgs e)
             {
-                                // Create a new PDF document
-                                Document doc = new Document(PageSize.A4);
-
-                                try
-                                {
-                                    // Define the path where the PDF will be saved
-                                    string filePath = "D:\\HoaDon.pdf"; // PDF will be saved on D: drive
-
-                                    // Create a FileStream to write the PDF content
-                                    PdfWriter.GetInstance(doc, new System.IO.FileStream(filePath, System.IO.FileMode.Create));
-
-                                    // Open the document to write
-                                    doc.Open();
-
-                                    // Add title and form details
-                                    doc.Add(new Paragraph("Hoa Don Details"));
-                                    doc.Add(new Paragraph("\n"));
-
-                                    // Adding labels and values similar to the form layout
-                                    PdfPTable table = new PdfPTable(2); // 2 columns (for label and value)
-
-                                    // Add rows for each label and value
-                                    table.AddCell("Ten Benh Nhan:");
-                                    table.AddCell(lbltenkh.Text);
-
-                                    table.AddCell("Ten Dich Vu:");
-                                    table.AddCell(lbltendv.Text);
-
-                                    table.AddCell("Ten Thuoc:");
-                                    table.AddCell(lbltenth.Text);
-
-                                    table.AddCell("Gia Thuoc:");
-                                    table.AddCell(lblgiathuoc.Text);
-
-                                    table.AddCell("Gia Dich Vu:");
-                                    table.AddCell(lblgiadv.Text);
-
-                                    table.AddCell("Ngay Lap:");
-                                    table.AddCell(lblngaylap.Text);
-
-                                    table.AddCell("Tong Gia:");
-                                    table.AddCell(lblgiatong.Text);
-
-                                    // Add the table to the document
-                                    doc.Add(table);
-
-                                    // Close the document
-                                    doc.Close();
-
-                                    // Show a message when the PDF is successfully created
-                                    MessageBox.Show("Hoa Don has been exported to PDF successfully!");
-                                }
-                                catch (Exception ex)
-                                {
-                                    // Handle exceptions (e.g., file path issues)
-                                    MessageBox.Show("Error exporting PDF: " + ex.Message);
-                                }
 
 
-                     }
+
+
+            // Ẩn nút "Xuất" trong khi đang xử lý
+            guna2Button1.Visible = false;
+
+            // Create a new PDF document
+            Document doc = new Document(PageSize.A4);
+
+            try
+            {
+                // Define the path where the PDF will be saved
+                string filePath = "D:\\VISUAL STUDIO\\QLPKDa\\HoaDon.pdf"; // PDF will be saved on D: drive
+
+                // Create a FileStream to write the PDF content
+                PdfWriter.GetInstance(doc, new System.IO.FileStream(filePath, System.IO.FileMode.Create));
+
+                // Open the document to write
+                doc.Open();
+
+                // Capture the screenshot of the form
+                Bitmap formImage = new Bitmap(this.Width, this.Height);
+                this.DrawToBitmap(formImage, new System.Drawing.Rectangle(0, 0, this.Width, this.Height));
+
+                // Create an Image object to add to the PDF
+                iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(formImage, System.Drawing.Imaging.ImageFormat.Bmp);
+
+                // Set the image scale (if necessary)
+                img.ScaleToFit(PageSize.A4.Width - 40, PageSize.A4.Height - 40);
+                img.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+
+                // Add the form image to the PDF
+                doc.Add(img);
+
+                // Close the document
+                doc.Close();
+
+                // Show a message when the PDF is successfully created
+                MessageBox.Show("Hoa Don has been exported to PDF successfully!");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., file path issues)
+                MessageBox.Show("Error exporting PDF: " + ex.Message);
+            }
+            finally
+            {
+                // Hiển thị lại nút "Xuất" sau khi xuất xong
+                guna2Button1.Visible = true;
+            }
+
+
+
+
+
+
+        }
         }
     }

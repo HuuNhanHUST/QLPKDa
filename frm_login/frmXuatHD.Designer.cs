@@ -141,7 +141,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(272, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 52);
+            this.label1.Size = new System.Drawing.Size(228, 51);
             this.label1.TabIndex = 17;
             this.label1.Text = "HÓA ĐƠN";
             // 
@@ -186,27 +186,27 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(432, 270);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 16);
+            this.label6.Size = new System.Drawing.Size(73, 16);
             this.label6.TabIndex = 22;
-            this.label6.Text = "Tổng tiền";
+            this.label6.Text = "Tổng tiền $";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(432, 185);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 16);
+            this.label7.Size = new System.Drawing.Size(79, 16);
             this.label7.TabIndex = 23;
-            this.label7.Text = "Giá Thuốc";
+            this.label7.Text = "Giá Thuốc $";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(432, 143);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 16);
+            this.label8.Size = new System.Drawing.Size(85, 16);
             this.label8.TabIndex = 24;
-            this.label8.Text = "Giá Dịch vụ";
+            this.label8.Text = "Giá Dịch vụ $";
             // 
             // frmXuatHD
             // 

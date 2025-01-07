@@ -97,11 +97,12 @@ namespace frm_login
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
         {
-            string username = txt_user.Text;  // Lấy tên tài khoản từ TextBox
-            string password = txt_password.Text;  // Lấy mật khẩu từ TextBox
+            // Lấy thông tin từ TextBox
+            string username = txt_user.Text;
+            string password = txt_password.Text;
 
-            // Kiểm tra tài khoản và mật khẩu
-            bool isAuthenticated = AccountManager.AuthenticateUser(username, password, @"D:\VISUAL STUDIO\HocWindowsForm\account.txt");
+            // Xác thực tài khoản
+            bool isAuthenticated = AccountManager.AuthenticateUser(username, password, @"D:\VISUAL STUDIO\QLPKDa\account.txt");
 
             if (isAuthenticated)
             {

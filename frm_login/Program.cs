@@ -18,7 +18,7 @@ namespace frm_login
             AccountManager accountManager = new AccountManager();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frm_saudangnhap());
         }
     }
 }

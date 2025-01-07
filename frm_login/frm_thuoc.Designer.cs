@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_thuoc));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -113,7 +114,8 @@
             this.btn_tim.FillColor = System.Drawing.Color.Transparent;
             this.btn_tim.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_tim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_tim.Location = new System.Drawing.Point(772, 20);
+            this.btn_tim.Image = ((System.Drawing.Image)(resources.GetObject("btn_tim.Image")));
+            this.btn_tim.Location = new System.Drawing.Point(773, 6);
             this.btn_tim.Name = "btn_tim";
             this.btn_tim.Size = new System.Drawing.Size(91, 31);
             this.btn_tim.TabIndex = 11;
@@ -131,7 +133,7 @@
             this.txt_tenthuoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_tenthuoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_tenthuoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_tenthuoc.Location = new System.Drawing.Point(606, 20);
+            this.txt_tenthuoc.Location = new System.Drawing.Point(606, 6);
             this.txt_tenthuoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_tenthuoc.Name = "txt_tenthuoc";
             this.txt_tenthuoc.PasswordChar = '\0';
@@ -145,7 +147,7 @@
             this.btn_timbnhan.AutoSize = false;
             this.btn_timbnhan.BackColor = System.Drawing.Color.Transparent;
             this.btn_timbnhan.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_timbnhan.Location = new System.Drawing.Point(530, 27);
+            this.btn_timbnhan.Location = new System.Drawing.Point(530, 6);
             this.btn_timbnhan.Name = "btn_timbnhan";
             this.btn_timbnhan.Size = new System.Drawing.Size(70, 19);
             this.btn_timbnhan.TabIndex = 9;
@@ -164,7 +166,7 @@
             this.cbx_sort.Items.AddRange(new object[] {
             "Giá tăng dần",
             "Giá giảm dần"});
-            this.cbx_sort.Location = new System.Drawing.Point(358, 20);
+            this.cbx_sort.Location = new System.Drawing.Point(358, 6);
             this.cbx_sort.Name = "cbx_sort";
             this.cbx_sort.Size = new System.Drawing.Size(154, 36);
             this.cbx_sort.TabIndex = 8;
@@ -175,7 +177,7 @@
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Franklin Gothic Medium", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(282, 27);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(282, 3);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(70, 19);
             this.guna2HtmlLabel2.TabIndex = 6;
@@ -192,9 +194,11 @@
             this.btn_sua.FillColor = System.Drawing.Color.Transparent;
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_sua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_sua.Location = new System.Drawing.Point(947, 19);
+            this.btn_sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_sua.Image")));
+            this.btn_sua.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_sua.Location = new System.Drawing.Point(907, 6);
             this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(63, 37);
+            this.btn_sua.Size = new System.Drawing.Size(82, 45);
             this.btn_sua.TabIndex = 5;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
@@ -335,6 +339,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.Location = new System.Drawing.Point(907, 580);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(93, 31);
@@ -354,6 +359,7 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.Location = new System.Drawing.Point(790, 580);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(91, 31);

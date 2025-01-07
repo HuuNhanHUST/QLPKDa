@@ -83,6 +83,16 @@ namespace frm_login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap defaultAVT {
+            get {
+                object obj = ResourceManager.GetObject("defaultAVT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dichvu {
             get {
                 object obj = ResourceManager.GetObject("dichvu", resourceCulture);

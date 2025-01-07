@@ -302,6 +302,52 @@ namespace frm_login
             }
         }
 
+
+
+        public bool SaveToCsv(string filePath)
+        {
+
+            try
+            {
+                // Fetching the list of patients directly from the database using Entity Framework
+                List<BenhNhan> danhSachBenhNhan;
+                using (var db = new Model1())
+                {
+                    danhSachBenhNhan = db.BenhNhans.ToList();  // Get all patients from the database
+                }
+
+                // Using UTF-8 encoding with BOM to avoid font issues
+                var utf8EncodingWithBom = new UTF8Encoding(true);  // 'true' ensures BOM is included
+
+                using (StreamWriter writer = new StreamWriter(filePath, false, utf8EncodingWithBom))
+                {
+                    // Writing column headers (modify as needed to match your actual columns)
+                    writer.WriteLine("ID, Tên, Tuổi, Giới tính, Địa chỉ");  // Modify columns as necessary
+
+                    // Writing patient data to the CSV
+                    foreach (var benhNhan in danhSachBenhNhan)
+                    {
+                        writer.WriteLine($"{benhNhan.MaBenhNhan}, {benhNhan.TenBenhNhan}, {benhNhan.SoDienThoai}, {benhNhan.DiaChi}, {benhNhan.Avatar}");
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Handle error if any
+                MessageBox.Show($"Có lỗi khi lưu file: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+
+        }
+
+
+
+
+
+
         private void btn_tim_Click(object sender, EventArgs e)
         {
             string searchText = txt_timbnhan.Text.Trim().ToLower(); // Get the search text and convert it to lowercase

@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddHoadon));
             this.txt_mahd = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbxBenhNhan = new System.Windows.Forms.ComboBox();
             this.cbxDichVu = new System.Windows.Forms.ComboBox();
             this.cbx_toathuoc = new System.Windows.Forms.ComboBox();
             this.dateNgaylap = new System.Windows.Forms.DateTimePicker();
             this.btn_luu = new Guna.UI2.WinForms.Guna2Button();
             this.controlbox_exit = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_mahd
@@ -61,51 +64,6 @@
             this.txt_mahd.SelectedText = "";
             this.txt_mahd.Size = new System.Drawing.Size(381, 28);
             this.txt_mahd.TabIndex = 0;
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(111, 53);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(77, 18);
-            this.guna2HtmlLabel1.TabIndex = 2;
-            this.guna2HtmlLabel1.Text = "Mã Hóa đơn";
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(111, 93);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(94, 18);
-            this.guna2HtmlLabel2.TabIndex = 3;
-            this.guna2HtmlLabel2.Text = "Mã khách hàng";
-            // 
-            // guna2HtmlLabel3
-            // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(111, 130);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(67, 18);
-            this.guna2HtmlLabel3.TabIndex = 4;
-            this.guna2HtmlLabel3.Text = "Mã dịch vụ";
-            // 
-            // guna2HtmlLabel4
-            // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(111, 174);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(79, 18);
-            this.guna2HtmlLabel4.TabIndex = 5;
-            this.guna2HtmlLabel4.Text = "Mã toa thuốc";
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(111, 219);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(58, 18);
-            this.guna2HtmlLabel5.TabIndex = 6;
-            this.guna2HtmlLabel5.Text = "Ngày lập";
             // 
             // cbxBenhNhan
             // 
@@ -137,7 +95,7 @@
             // 
             // dateNgaylap
             // 
-            this.dateNgaylap.CustomFormat = "dd/MM/yyyy";
+            this.dateNgaylap.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateNgaylap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateNgaylap.Location = new System.Drawing.Point(245, 219);
             this.dateNgaylap.Name = "dateNgaylap";
@@ -169,28 +127,86 @@
             this.controlbox_exit.Size = new System.Drawing.Size(45, 29);
             this.controlbox_exit.TabIndex = 39;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(96, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Mã Hóa đơn";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(96, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Tên khách hàng";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(96, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 16);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Tên dịch vụ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(96, 219);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Ngày lập";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(96, 174);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 16);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Mã toa thuốc";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(664, 34);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(144, 103);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 45;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // AddHoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 364);
+            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.controlbox_exit);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.dateNgaylap);
             this.Controls.Add(this.cbx_toathuoc);
             this.Controls.Add(this.cbxDichVu);
             this.Controls.Add(this.cbxBenhNhan);
-            this.Controls.Add(this.guna2HtmlLabel5);
-            this.Controls.Add(this.guna2HtmlLabel4);
-            this.Controls.Add(this.guna2HtmlLabel3);
-            this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.txt_mahd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddHoadon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddHoadon";
             this.Load += new System.EventHandler(this.AddHoadon_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,16 +215,17 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2TextBox txt_mahd;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private System.Windows.Forms.ComboBox cbxBenhNhan;
         private System.Windows.Forms.ComboBox cbxDichVu;
         private System.Windows.Forms.ComboBox cbx_toathuoc;
         private System.Windows.Forms.DateTimePicker dateNgaylap;
         private Guna.UI2.WinForms.Guna2Button btn_luu;
         private Guna.UI2.WinForms.Guna2ControlBox controlbox_exit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

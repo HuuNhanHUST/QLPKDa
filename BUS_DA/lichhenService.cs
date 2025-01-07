@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Reflection;
@@ -26,31 +27,31 @@ namespace BUS_DA
             return model1.LichHens.Where(d => d.MaLichHen == maLichHen).FirstOrDefault() == null;
         }
 
-        public void add(string maLichHen, DateTime ngayHenTT, DateTime ngayHenGN, string maBenhNhan, string maDichVu, string ghiChu)
+        public void Add(LichHen lichHen)
         {
-            model1.LichHens.Add(new LichHen()
-            {
-                MaLichHen = maLichHen,
-                NgayHenTT = ngayHenTT,
-                NgayHenGN = ngayHenGN,
-                MaBenhNhan = maBenhNhan,
-                MaDichVu = maDichVu,
-                Ghichu = ghiChu
-            });
-            model1.SaveChanges();
+            model1.LichHens.Add(lichHen); // Thêm đối tượng LichHen vào DbSet
+            model1.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
         }
 
-        public void update(string maLichHen, DateTime ngayHenTT, DateTime ngayHenGN, string maBenhNhan, string maDichVu, string ghiChu)
+        // Phương thức để sửa cập nhật lịch hẹn
+        public void Update(LichHen lichHen)
         {
-            LichHen lichHen = model1.LichHens.Where(d => d.MaLichHen == maLichHen).FirstOrDefault();
-            lichHen.NgayHenTT = ngayHenTT;
-            lichHen.NgayHenGN = ngayHenGN;
-            lichHen.MaBenhNhan = maBenhNhan;
-            lichHen.Ghichu = ghiChu;
-            lichHen.MaDichVu = maDichVu;
-            model1.LichHens.AddOrUpdate(lichHen);
-            model1.SaveChanges();
+            var existingLichHen = model1.LichHens
+                .FirstOrDefault(lh => lh.MaLichHen == lichHen.MaLichHen); // Tìm kiếm bản ghi lịch hẹn theo mã
+
+            if (existingLichHen != null)
+            {
+                // Cập nhật các trường cần thiết
+                existingLichHen.NgayHenTT = lichHen.NgayHenTT;
+                existingLichHen.NgayHenGN = lichHen.NgayHenGN;
+                existingLichHen.MaBenhNhan = lichHen.MaBenhNhan;
+                existingLichHen.MaDichVu = lichHen.MaDichVu;
+                existingLichHen.Ghichu = lichHen.Ghichu;
+
+                model1.SaveChanges(); // Lưu lại thay đổi vào cơ sở dữ liệu
+            }
         }
+
 
         public void delete(string maLichHen)
         {
